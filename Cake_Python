@@ -1,0 +1,40 @@
+# Leonardo Trevino
+
+# This was the only function that needed to be printed outside the for loop
+# due to it always being printed once no matter the size
+def flame (size):
+    for x in range(size):
+        print(" ", end = "")
+    print("🔥")
+
+# Spacing was an issue here, which was fixed by multiplying the spacing itself with the input size
+def candle (size):
+    for x in range(size):
+        print(" " * (size), end = "")
+        print("#")
+
+# Since the rows could be printed in new lines based on the formula
+# there was no need for a column
+def cake (size):
+    for row in range(size):
+            print("*" * (size * 2 + 1))
+
+# Simplest one, used given formula
+def plate (size):
+    print("-" * (size * 2 + 1))
+
+def whole_cake (size):
+    flame(size)
+    candle(size)
+    cake(size)
+    plate(size)
+def thor(size):
+    cake(size)
+    candle(size)
+
+def main ():
+    size = int(input("size?: "))
+    whole_cake(size)
+    print()
+    thor(size)
+main()
