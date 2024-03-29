@@ -1,0 +1,62 @@
+rint("Hourglass time!")
+print()
+
+size = int(input("Size: "))
+while size != 1 and size != 2 and size != 3 and size != 4 and size != 5:
+    size = int(input("Invalid try again: "))
+
+else:
+
+    sand = input("Sand: ")
+    print()
+
+    if size == 5:
+        print("---------")
+
+    elif size == 4:
+        print("-------")
+
+    elif size == 3:
+        print("-----")
+
+    elif size == 2:
+        print("---")
+
+    elif size == 1:
+        print("-")
+
+    for row in range (size - 1):
+        for col in range (row):
+            print("", end = " ")
+
+        for col in range (row, size - 1):
+            print(sand, end = "")
+
+        for col in range (row, size):
+            print(sand, end = "")
+
+        print()
+
+    for row in range(size):
+
+        for col in range(size - row - 1):
+            print(" ", end="")
+        for col in range(2 * row + 1):
+            print(sand, end="")
+
+        print()
+
+    if size == 5:
+        print("---------")
+
+    elif size == 4:
+        print("-------")
+
+    elif size == 3:
+        print("-----")
+
+    elif size == 2:
+        print("---")
+
+    elif size == 1:
+        print("-")
