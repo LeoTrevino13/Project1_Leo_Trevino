@@ -1,0 +1,48 @@
+TOWER_HEIGHT = 50
+CURRENT_HEIGHT = 0
+SLIPPERY = 7
+WOBBLY = 10
+VALID_CLIMB_VALUE = 0
+CLIMB_ATTEMPTS = 0
+CLIMB_INCREASE = 1
+INPUT_INVALIDATION = 0
+# I do not know if line 7 and 8 needed to be a constant, but better safe than sorry
+
+print("Tower height : ", TOWER_HEIGHT)
+print()
+print("Current height: ", CURRENT_HEIGHT)
+
+# Had a hard time figuring out why the attempts made were one short until I analyzed line 11 also needed to add one
+
+
+while CURRENT_HEIGHT < TOWER_HEIGHT:
+    CLIMB_ATTEMPTS += CLIMB_INCREASE
+    climb_distance = int(input("How many do you want to climb this round? (whole feet) : "))
+
+    if climb_distance == SLIPPERY:
+        CURRENT_HEIGHT -= SLIPPERY
+        print("Oh no!, You hit a slippery block and fell down 7 blocks!")
+        print()
+        print("Current height: ", CURRENT_HEIGHT)
+        print()
+
+    elif climb_distance == WOBBLY:
+        CURRENT_HEIGHT -= WOBBLY
+        print("That is not good...., you hit a wobbly rock and slipped 10 blocks")
+        print()
+        print("Current height: ", CURRENT_HEIGHT)
+        print()
+
+    elif climb_distance < INPUT_INVALIDATION:
+        climb_distance = int(input("😠 Not a valid climb, try again: "))
+
+    else:
+        CURRENT_HEIGHT += climb_distance
+        print()
+        print("Current height: ", CURRENT_HEIGHT)
+        print()
+
+
+else:
+    print("You used", CLIMB_ATTEMPTS, "mini climbs to climb the tower.")
+    print(CURRENT_HEIGHT)
